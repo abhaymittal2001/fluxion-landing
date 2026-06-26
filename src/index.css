@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Fonts: drop the two official families into /public/fonts and the @font-face
+ * blocks below pick them up. Defaults wired to Noto Sans + Open Sans.
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('/fonts/NotoSans-Variable.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/OpenSans-Variable.ttf') format('truetype');
+}
+
+:root {
+  /* === OFFICIAL PALETTE SLOT ===
+     Replace these RGB triplets with the exact hex codes (as `R G B`) from the
+     provided color palette. Nothing else needs to change. */
+  --c-ink: 9 11 16;          /* near-black background */
+  --c-surface: 14 17 23;     /* base surface */
+  --c-elevated: 22 27 36;    /* cards / bento nodes */
+  --c-accent: 52 211 153;    /* emerald accent (matches brief styling) */
+  --c-accent-soft: 16 49 41; /* accent tint */
+  --c-muted: 148 163 184;    /* secondary text */
+  --c-line: 38 45 58;        /* hairline borders */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: rgb(var(--c-ink));
+  color: rgb(248 250 252);
+  font-family: 'Open Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Respect users who prefer no motion — disables all entry/hover orchestration. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
