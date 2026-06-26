@@ -25,3 +25,6 @@ dist-ssr
 
 # build output
 dist
+
+# reference motion video (not for submission repo)
+design-assets/demo-reference.mp4
