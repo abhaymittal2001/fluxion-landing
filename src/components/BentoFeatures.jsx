@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
+import { Icon } from './icons';
 
 /*
  * BENTO  <->  ACCORDION  (zero external dependencies)
@@ -22,46 +23,31 @@ const FEATURES = [
     id: 'pipelines',
     title: 'Visual Pipeline Builder',
     body: 'Drag, drop, and branch data flows across 200+ sources. No glue code — just declarative steps that compile to optimized execution graphs.',
-    icon: 'flow',
+    icon: 'cube',
     span: 'md:col-span-2 md:row-span-2',
   },
   {
     id: 'agents',
     title: 'Autonomous Agents',
     body: 'Spin up reasoning agents that monitor streams and act on thresholds in real time.',
-    icon: 'spark',
+    icon: 'cog',
     span: 'md:col-span-1',
   },
   {
     id: 'observability',
     title: 'Full Observability',
     body: 'Trace every row, retry, and transform with millisecond lineage.',
-    icon: 'pulse',
+    icon: 'arrowTrendingUp',
     span: 'md:col-span-1',
   },
   {
     id: 'governance',
     title: 'Governance & RBAC',
     body: 'Row-level policies, audit logs, and SOC2-ready access controls baked in.',
-    icon: 'shield',
+    icon: 'chartPie',
     span: 'md:col-span-2',
   },
 ];
-
-const ICONS = {
-  flow: 'M4 7h6M4 12h10M4 17h7M16 5l4 4-4 4',
-  spark: 'M12 3v6m0 6v6m9-9h-6M9 12H3m13.5-5.5L13 10m-2 4l-3.5 3.5',
-  pulse: 'M3 12h4l3 8 4-16 3 8h4',
-  shield: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z',
-};
-
-function FeatureIcon({ name }) {
-  return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-accent" aria-hidden="true">
-      <path d={ICONS[name]} stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 export default function BentoFeatures() {
   const [isMobile, setIsMobile] = useState(() =>
@@ -106,8 +92,8 @@ export default function BentoFeatures() {
   return (
     <section id="features" aria-labelledby="features-title" className="mx-auto max-w-6xl px-6 py-24">
       <header className="mx-auto mb-12 max-w-2xl text-center">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">Platform</p>
-        <h2 id="features-title" className="font-display text-4xl font-bold tracking-tight md:text-5xl">
+        <p className="mb-3 font-display text-sm font-semibold uppercase tracking-widest text-saffron">Platform</p>
+        <h2 id="features-title" className="font-display text-3xl font-bold tracking-tight md:text-5xl">
           Everything your data team needs
         </h2>
       </header>
@@ -125,7 +111,7 @@ export default function BentoFeatures() {
               activeIndex === i ? 'border-accent bg-elevated' : 'border-line'
             }`}
           >
-            <FeatureIcon name={f.icon} />
+            <Icon name={f.icon} size={30} className="text-accent" />
             <div>
               <h3 className="font-display text-lg font-bold">{f.title}</h3>
               <p className="mt-2 text-sm text-muted">{f.body}</p>
@@ -147,15 +133,14 @@ export default function BentoFeatures() {
                 className="flex w-full items-center justify-between gap-3 p-5 text-left"
               >
                 <span className="flex items-center gap-3">
-                  <FeatureIcon name={f.icon} />
+                  <Icon name={f.icon} size={24} className="text-accent" />
                   <span className="font-display font-bold">{f.title}</span>
                 </span>
-                <svg
-                  width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+                <Icon
+                  name="chevronDown"
+                  size={20}
                   className={`shrink-0 text-muted transition-transform duration-200 ease-micro ${open ? 'rotate-180' : ''}`}
-                >
-                  <path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                />
               </button>
               <div
                 id={`panel-${f.id}`}

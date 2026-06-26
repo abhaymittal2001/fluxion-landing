@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Icon } from './icons';
 
 /*
  * Entry loader — total orchestration budget < 500ms.
@@ -38,10 +39,8 @@ export default function Loader() {
   return (
     <div ref={ref} className="fixed inset-0 z-50 flex items-center justify-center bg-ink" aria-hidden="true">
       <div className="flex items-center gap-3">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" className="animate-pulse text-accent">
-          <path d="M4 7h6M4 12h10M4 17h7M16 5l4 4-4 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-        <span className="font-display text-xl font-bold">Fluxion</span>
+        <Icon name="cube" size={32} className="animate-pulse text-accent" />
+        <span className="font-display text-xl font-bold tracking-tight text-powder">fluxion</span>
       </div>
     </div>
   );

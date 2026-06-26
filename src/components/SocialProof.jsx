@@ -24,20 +24,20 @@ export default function SocialProof() {
         </ul>
 
         <dl className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4">
-          {STATS.map((s) => (
+          {STATS.map((s, i) => (
             <div key={s.label} className="text-center">
-              <dt className="font-display text-4xl font-bold text-accent">{s.value}</dt>
+              <dt className={`font-display text-4xl font-bold ${i % 2 ? 'text-saffron' : 'text-accent'}`}>{s.value}</dt>
               <dd className="mt-1 text-sm text-muted">{s.label}</dd>
             </div>
           ))}
         </dl>
 
         <figure className="mx-auto mt-16 max-w-3xl rounded-2xl border border-line bg-elevated p-8 text-center">
-          <blockquote className="font-display text-xl font-medium leading-relaxed md:text-2xl">
+          <blockquote className="text-xl font-medium leading-relaxed md:text-2xl">
             “We replaced four internal tools with Fluxion and cut our data-ops headcount cost by 60%. The currency-aware billing alone paid for itself.”
           </blockquote>
           <figcaption className="mt-5 text-sm text-muted">
-            <span className="font-semibold text-white">Priya Nair</span> — VP Data Platform, Quanta
+            <span className="font-semibold text-powder">Priya Nair</span> — VP Data Platform, Quanta
           </figcaption>
         </figure>
       </div>

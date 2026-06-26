@@ -2,36 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
- * Fonts: drop the two official families into /public/fonts and the @font-face
- * blocks below pick them up. Defaults wired to Noto Sans + Open Sans.
- */
+/* === OFFICIAL FONTS (self-hosted — no external runtime resources) ===
+   JetBrains Mono -> headers/display, Inter -> body/UI. */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: 'JetBrains Mono';
   font-style: normal;
-  font-weight: 400 800;
+  font-weight: 100 800;
   font-display: swap;
-  src: url('/fonts/NotoSans-Variable.ttf') format('truetype');
+  src: url('./assets/fonts/JetBrainsMono-Variable.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Inter';
   font-style: normal;
-  font-weight: 400 700;
+  font-weight: 100 900;
   font-display: swap;
-  src: url('/fonts/OpenSans-Variable.ttf') format('truetype');
+  src: url('./assets/fonts/Inter-Variable.ttf') format('truetype');
 }
 
 :root {
-  /* === OFFICIAL PALETTE SLOT ===
-     Replace these RGB triplets with the exact hex codes (as `R G B`) from the
-     provided color palette. Nothing else needs to change. */
-  --c-ink: 9 11 16;          /* near-black background */
-  --c-surface: 14 17 23;     /* base surface */
-  --c-elevated: 22 27 36;    /* cards / bento nodes */
-  --c-accent: 52 211 153;    /* emerald accent (matches brief styling) */
-  --c-accent-soft: 16 49 41; /* accent tint */
-  --c-muted: 148 163 184;    /* secondary text */
-  --c-line: 38 45 58;        /* hairline borders */
+  /* === OFFICIAL COLOR PALETTE (colorPallet.pdf), as `R G B` triplets === */
+  --c-ink: 23 43 54;        /* Oceanic Noir   #172B36 — page background */
+  --c-surface: 19 55 66;    /* lifted noir — alt section bands           */
+  --c-elevated: 17 76 90;   /* Nocturnal Expedition #114C5A — cards       */
+  --c-accent: 255 200 1;    /* Forsythia      #FFC801 — primary accent    */
+  --c-saffron: 255 153 50;  /* Deep Saffron   #FF9932 — secondary accent  */
+  --c-powder: 241 246 244;  /* Arctic Powder  #F1F6F4 — primary text      */
+  --c-mint: 217 232 226;    /* Mystic Mint    #D9E8E2 — tints             */
+  --c-muted: 150 178 176;   /* dimmed mint — secondary text               */
+  --c-line: 42 74 86;       /* teal hairline borders                      */
 }
 
 html {
@@ -41,8 +39,8 @@ html {
 body {
   margin: 0;
   background: rgb(var(--c-ink));
-  color: rgb(248 250 252);
-  font-family: 'Open Sans', system-ui, sans-serif;
+  color: rgb(var(--c-powder));
+  font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

@@ -45,12 +45,28 @@ npm run preview  # serve the production build
 - Micro-interactions 150–200ms ease-out; structural reflows 300–400ms ease-in-out.
 - `prefers-reduced-motion` honored.
 
-## Asset slots (drop in the official asset package)
-- **Color palette:** replace the `--c-*` RGB triplets in [`src/index.css`](src/index.css)
-  with the exact hex codes from the palette. Nothing else changes.
-- **Fonts:** the two official font files go in `public/fonts/` (currently wired to
-  Noto Sans + Open Sans variable fonts via `@font-face`).
-- **SVGs:** swap the inline placeholder icons for the provided SVG pack.
+## Official assets — integrated
+All three provided asset categories are wired in (sources kept in `design-assets/`
+and `src/assets/`):
+- **Color palette** (`colorPallet.pdf`) — the six official hexes drive every color
+  via CSS variables in [`src/index.css`](src/index.css): Oceanic Noir `#172B36`,
+  Nocturnal Expedition `#114C5A`, Forsythia `#FFC801`, Deep Saffron `#FF9932`,
+  Arctic Powder `#F1F6F4`, Mystic Mint `#D9E8E2`.
+- **Fonts** (`fonts.pdf`) — JetBrains Mono (display/headers) + Inter (body/UI),
+  self-hosted from [`src/assets/fonts/`](src/assets/fonts) (no external runtime
+  resources) and processed through the bundler.
+- **SVG pack** — the supplied glyphs are used throughout (cube, cog-8-tooth,
+  arrow-trending-up, chart-pie, link, search, chevrons, x-mark). Sources in
+  [`src/assets/svg/`](src/assets/svg); rendered inline with `currentColor` via
+  [`src/components/icons.jsx`](src/components/icons.jsx) so they inherit the palette.
+
+Motion is tuned to `demo.mp4` (kept out of the repo to stay lean; it's the
+separate <100MB submission video).
+
+## Deployment
+Auto-deploys to **GitHub Pages** via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
+on every push to `main`. The Vite `base` is set to `/fluxion-landing/` for
+production builds (see [`vite.config.js`](vite.config.js)).
 
 ## Tech
 React 19 · Vite · Tailwind CSS 3 · native CSS / WAAPI motion · no animation libs.
